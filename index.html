@@ -1,161 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxing Equipment Store</title>
-    <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #f8f8f8;
-    text-align: center;
-}
-
-header {
-    background: #e60000;
-    color: white;
-    padding: 15px 0;
-    font-size: 24px;
-}
-
-.products-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px;
-    flex-wrap: wrap;
-}
-
-.product-card {
-    background: white;
-    width: 250px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.product-card img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.product-card h2 {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.price {
-    font-size: 18px;
-    color: #e60000;
-    font-weight: bold;
-}
-
-.product-card p {
-    font-size: 14px;
-    color: #555;
-    margin: 10px 0;
-}
-
-.add-to-cart {
-    background-color: #e60000;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.add-to-cart:hover {
-    background-color: #cc0000;
-}
-    </style>
-</head>
-<body>
     <header>
-        <h1>Boxing Equipment Store</h1>
-    </header>
-
-    <div class="products-container">
-        <!-- Product 1: Boxing Gloves -->
-        <div class="product-card">
-            <img src="ligatee.jpg" alt="Gants de boxe premium">
-            <h2>Gants de boxe premium</h2>
-            <p class="price">$49.99</p>
-            <p>Gants durables et confortables pour l enttraiment et les combats</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 2: Hand Wraps -->
-        <div class="product-card">
-            <img src="bandat.jpg" alt="Bandes de maintein">
-            <h2>Bandes de maintein</h2>
-            <p class="price">$9.99</p>
-            <p>Bandes élastiques et respirantes pour la protection des poignets.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 3: Boxing Shoes -->
-        <div class="product-card">
-            <img src="spadriiiiiiiiiiiiiii.jpeg" alt="chaussures de boxe">
-            <h2>chaussures de boxe</h2>
-            <p class="price">$79.99</p>
-            <p>chaussures légéres et flexibles pour des mouvments rapides.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 4: Mouth Guard -->
-        <div class="product-card">
-            <img src="protegedents.jpeg" alt="Protége dents">
-            <h2>Protége dents </h2>
-            <p class="price">$14.99</p>
-            <p>protége vos dents et vos gencives pandant les combats.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 5: Jump Rope -->
-        <div class="product-card">
-            <img src="hble.jpeg" alt="corde a Sauter">
-            <h2>corde a Sauter</h2>
-            <p class="price">$19.99</p>
-            <p>parfaite pour l entraiment cardio et l endurance.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 6: Water Bottle -->
-        <div class="product-card">
-            <img src="boutail.jpeg" alt="bouteille d eau">
-            <h2>bouteille d eau</h2>
-            <p class="price">$12.99</p>
-            <p>restez hydraté avec une boutaille de  l endurrance.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 7: Boxing Suit -->
-        <div class="product-card">
-            <img src="tenue.jpeg" alt="tenue de boxe">
-            <h2>tenue de boxe</h2>
-            <p class="price">$59.99</p>
-            <p>ensemble léger et respirant pour la boxe .</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
-
-        <!-- Product 8: Boxing Shorts -->
-        <div class="product-card">
-            <img src="shorts box.jpeg" alt="short de boxe">
-            <h2>short de boxe</h2>
-            <p class="price">$29.99</p>
-            <p>short confortable pour l entriment et les combats.</p>
-            <button class="ajouter au panier">ajouter au panier</button>
-        </div>
+        
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxing Equipment Store</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e60000',
+            primaryDark: '#cc0000',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        font-family: Arial, sans-serif;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen transition-colors duration-300">
+  <!-- Header -->
+  <header class="bg-[#e60000] text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Boxing Equipment Store</h1>
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-white text-gray-800 dark:bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+          <i data-lucide="moon" class="theme-icon-moon w-5 h-5"></i>
+          <i data-lucide="sun" class="theme-icon-sun w-5 h-5 hidden"></i>
+        </button>
+        
+        <!-- About Button -->
+        <button id="about-btn" class="flex items-center gap-1 bg-white text-[#e60000] px-3 py-1 rounded-md hover:bg-gray-100 transition-colors">
+          <i data-lucide="info" class="w-4 h-4"></i>
+          <span>About</span>
+        </button>
+        
+        <!-- Contact Button -->
+        <button id="contact-btn" class="flex items-center gap-1 bg-white text-[#e60000] px-3 py-1 rounded-md hover:bg-gray-100 transition-colors">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Contact</span>
+        </button>
+        
+        <!-- Cart Button -->
+        <button id="cart-btn" class="flex items-center gap-1 bg-white text-[#e60000] px-3 py-1 rounded-md hover:bg-gray-100 transition-colors relative">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+          <span>Cart</span>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+        </button>
+         <img src="./DALL·E 2025-03-06 05.57.18 - A professional boxing logo featuring a pair of red boxing gloves hanging over a championship belt with a bold, modern font. The design should be sleek.webp" alt="Boxing HTML CSS Logo" class="site-logo" width="150" height="150"
+      </div>
     </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-8 px-4">
+    <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Products will be dynamically added here -->
+    </div>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-50" id="cart-overlay"></div>
+    
+    <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 ease-in-out">
+      <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Votre Panier</h2>
+          <button id="close-cart" class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <i data-lucide="x" class="w-6 h-6 text-gray-500 dark:text-gray-400"></i>
+          </button>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-4">
+          <div id="cart-items" class="space-y-4">
+            <!-- Cart items will be dynamically added here -->
+          </div>
+          <p id="empty-cart-message" class="text-center text-gray-500 dark:text-gray-400 py-8">Votre panier est vide</p>
+        </div>
+        
+        <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-lg font-semibold text-gray-800 dark:text-white">Total:</span>
+            <span id="cart-total" class="text-xl font-bold text-[#e60000] dark:text-red-400">$0.00</span>
+          </div>
+          <button id="whatsapp-order-btn" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Chat on WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Contact Modal -->
+  <div id="contact-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-50" id="contact-overlay"></div>
+    
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Contactez-nous sur WhatsApp</h2>
+        <button id="close-contact" class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+          <i data-lucide="x" class="w-6 h-6 text-gray-500 dark:text-gray-400"></i>
+        </button>
+      </div>
+      
+      <form id="whatsapp-form" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Votre nom
+          </label>
+          <input
+            type="text"
+            id="name"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e60000] dark:bg-gray-700 dark:text-white"
+            required
+          />
+        </div>
+        
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Numéro WhatsApp (avec indicatif pays)
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="+33612345678"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e60000] dark:bg-gray-700 dark:text-white"
+            required
+          />
+        </div>
+        
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Votre message
+          </label>
+          <textarea
+            id="message"
+            rows="4"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e60000] dark:bg-gray-700 dark:text-white"
+            required
+          ></textarea>
+        </div>
+        
+        <button 
+          type="submit"
+          class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition-colors"
+        >
+          <i data-lucide="send" class="w-4 h-4"></i>
+          Envoyer sur WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div id="about-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-50" id="about-overlay"></div>
+    
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold text-gray-800 dark:text-white">About Boxing Equipment Store</h2>
+        <button id="close-about" class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+          <i data-lucide="x" class="w-6 h-6 text-gray-500 dark:text-gray-400"></i>
+        </button>
+      </div>
+      
+      <div class="text-gray-600 dark:text-gray-300 space-y-4">
+        <p>
+          Welcome to Boxing Equipment Store, your one-stop shop for high-quality boxing gear and accessories.
+        </p>
+        <p>
+          We offer a wide range of products including gloves, hand wraps, shoes, protective gear, and training equipment.
+          Our mission is to provide boxers of all levels with the best equipment to enhance their performance and safety.
+        </p>
+        <p>
+          Founded by passionate boxing enthusiasts, we understand the importance of reliable gear in this demanding sport.
+          That's why we carefully select each product in our inventory to ensure durability, comfort, and performance.
+        </p>
+        <p>
+          For any inquiries or assistance, please don't hesitate to contact us via WhatsApp. We're here to help you find
+          the perfect boxing equipment for your needs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Product data
+    const products = [
+      {
+        id: 1,
+        name: "Gants de boxe premium",
+        price: 49.99,
+        description: "Gants durables et confortables pour l'entraînement et les combats",
+        image: "ligatee.jpg",
+      },
+      {
+        id: 2,
+        name: "Bandes de maintien",
+        price: 9.99,
+        description: "Bandes élastiques et respirantes pour la protection des poignets.",
+        image: "bandat.jpg",
+      },
+      {
+        id: 3,
+        name: "Chaussures de boxe",
+        price: 79.99,
+        description: "Chaussures légères et flexibles pour des mouvements rapides.",
+        image: "spadriiiiiiiiiiiiiii.jpeg",
+      },
+      {
+        id: 4,
+        name: "Protège dents",
+        price: 14.99,
+        description: "Protège vos dents et vos gencives pendant les combats.",
+        image: "protegedents.jpeg",
+      },
+      {
+        id: 5,
+        name: "Corde à Sauter",
+        price: 19.99,
+        description: "Parfaite pour l'entraînement cardio et l'endurance.",
+        image: "hble.jpeg",
+      },
+      {
+        id: 6,
+        name: "Bouteille d'eau",
+        price: 12.99,
+        description: "Restez hydraté avec une bouteille de l'endurance.",
+        image: "boutail.jpeg",
+      },
+      {
+        id: 7,
+        name: "Tenue de boxe",
+        price: 59.99,
+        description: "Ensemble léger et respirant pour la boxe.",
+        image: "tenue.jpeg",
+      },
+      {
+        id: 8,
+        name: "Short de boxe",
+        price: 29.99,
+        description: "Short confortable pour l'entraînement et les combats.",
+        image: "shorts box.jpeg",
+      },
+    ];
+
+    // Cart state
+    let cart = [];
+
+    // DOM elements
+    const productsContainer = document.getElementById('products-container');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartItems = document.getElementById('cart-items');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const cartTotal = document.getElementById('cart-total');
+    const cartCount = document.getElementById('cart-count');
+    const contactModal = document.getElementById('contact-modal');
+    const aboutModal = document.getElementById('about-modal');
+    const themeToggle = document.getElementById('theme-toggle');
+    const moonIcon = document.querySelector('.theme-icon-moon');
+    const sunIcon = document.querySelector('.theme-icon-sun');
+
+    // Check for saved theme preference or prefer-color-scheme
+    const isDarkMode = localStorage.getItem('darkMode') === 'true' || 
+                      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    // Apply theme on page load
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      moonIcon.classList.add('hidden');
+      sunIcon.classList.remove('hidden');
+    }
+
+    // Render products
+    function renderProducts() {
+      productsContainer.innerHTML = '';
+      
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg';
+        productCard.innerHTML = `
+          <img 
+            src="${product.image}" 
+            alt="${product.name}" 
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">${product.name}</h2>
+            <p class="text-[#e60000] dark:text-red-400 font-bold text-xl mb-2">$${product.price.toFixed(2)}</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">${product.description}</p>
+            
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+                <button 
+                  class="px-2 py-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 decrement-btn"
+                  data-product-id="${product.id}"
+                >
+                  <i data-lucide="minus" class="w-4 h-4"></i>
+                </button>
+                <span class="px-3 py-1 text-gray-800 dark:text-white quantity" data-product-id="${product.id}">1</span>
+                <button 
+                  class="px-2 py-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 increment-btn"
+                  data-product-id="${product.id}"
+                >
+                  <i data-lucide="plus" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+            
+            <button 
+              class="w-full bg-[#e60000] hover:bg-[#cc0000] text-white py-2 px-4 rounded-md transition-colors add-to-cart-btn"
+              data-product-id="${product.id}"
+            >
+              Ajouter au panier
+            </button>
+          </div>
+        `;
+        
+        productsContainer.appendChild(productCard);
+      });
+      
+      // Re-initialize Lucide icons for the newly added elements
+      lucide.createIcons();
+      
+      // Add event listeners to the new buttons
+      addProductEventListeners();
+    }
+
+    // Add event listeners to product buttons
+    function addProductEventListeners() {
+      // Increment buttons
+      document.querySelectorAll('.increment-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const productId = parseInt(e.currentTarget.dataset.productId);
+          const quantityElement = document.querySelector(`.quantity[data-product-id="${productId}"]`);
+          let quantity = parseInt(quantityElement.textContent);
+          quantityElement.textContent = quantity + 1;
+        });
+      });
+      
+      // Decrement buttons
+      document.querySelectorAll('.decrement-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const productId = parseInt(e.currentTarget.dataset.productId);
+          const quantityElement = document.querySelector(`.quantity[data-product-id="${productId}"]`);
+          let quantity = parseInt(quantityElement.textContent);
+          if (quantity > 1) {
+            quantityElement.textContent = quantity - 1;
+          }
+        });
+      });
+      
+      // Add to cart buttons
+      document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const productId = parseInt(e.currentTarget.dataset.productId);
+          const quantityElement = document.querySelector(`.quantity[data-product-id="${productId}"]`);
+          const quantity = parseInt(quantityElement.textContent);
+          
+          addToCart(productId, quantity);
+          
+          // Reset quantity to 1
+          quantityElement.textContent = '1';
+        });
+      });
+    }
+
+    // Add to cart function
+    function addToCart(productId, quantity) {
+      const existingItem = cart.find(item => item.id === productId);
+      
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ id: productId, quantity });
+      }
+      
+      updateCart();
+    }
+
+    // Update cart quantity
+    function updateCartQuantity(productId, quantity) {
+      if (quantity <= 0) {
+        cart = cart.filter(item => item.id !== productId);
+      } else {
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+          item.quantity = quantity;
+        }
+      }
+      
+      updateCart();
+    }
+
+    // Update cart UI
+    function updateCart() {
+      // Update cart items
+      cartItems.innerHTML = '';
+      
+      if (cart.length === 0) {
+        emptyCartMessage.classList.remove('hidden');
+      } else {
+        emptyCartMessage.classList.add('hidden');
+        
+        cart.forEach(item => {
+          const product = products.find(p => p.id === item.id);
+          if (!product) return;
+          
+          const cartItem = document.createElement('div');
+          cartItem.className = 'flex items-center gap-4 py-2 border-b border-gray-100 dark:border-gray-700';
+          cartItem.innerHTML = `
+            <img 
+              src="${product.image}" 
+              alt="${product.name}" 
+              class="w-16 h-16 object-cover rounded-md"
+            />
+            <div class="flex-1">
+              <h3 class="font-medium text-gray-800 dark:text-white">${product.name}</h3>
+              <p class="text-[#e60000] dark:text-red-400">$${product.price.toFixed(2)}</p>
+            </div>
+            <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+              <button 
+                class="px-2 py-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cart-decrement-btn"
+                data-product-id="${product.id}"
+              >
+                -
+              </button>
+              <span class="px-3 py-1 text-gray-800 dark:text-white">${item.quantity}</span>
+              <button 
+                class="px-2 py-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cart-increment-btn"
+                data-product-id="${product.id}"
+              >
+                +
+              </button>
+            </div>
+          `;
+          
+          cartItems.appendChild(cartItem);
+        });
+        
+        // Add event listeners to cart buttons
+        document.querySelectorAll('.cart-increment-btn').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const productId = parseInt(e.currentTarget.dataset.productId);
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+              updateCartQuantity(productId, item.quantity + 1);
+            }
+          });
+        });
+        
+        document.querySelectorAll('.cart-decrement-btn').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const productId = parseInt(e.currentTarget.dataset.productId);
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+              updateCartQuantity(productId, item.quantity - 1);
+            }
+          });
+        });
+      }
+      
+      // Update cart total
+      const total = cart.reduce((sum, item) => {
+        const product = products.find(p => p.id === item.id);
+        return sum + (product?.price || 0) * item.quantity;
+      }, 0);
+      
+      cartTotal.textContent = `$${total.toFixed(2)}`;
+      
+      // Update cart count
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      if (totalItems > 0) {
+        cartCount.classList.remove('hidden');
+      } else {
+        cartCount.classList.add('hidden');
+      }
+      
+      // Re-initialize Lucide icons for the newly added elements
+      lucide.createIcons();
+    }
+
+    // Event Listeners
+    document.getElementById('cart-btn').addEventListener('click', () => {
+      cartSidebar.classList.remove('hidden');
+    });
+    
+    document.getElementById('close-cart').addEventListener('click', () => {
+      cartSidebar.classList.add('hidden');
+    });
+    
+    document.getElementById('cart-overlay').addEventListener('click', () => {
+      cartSidebar.classList.add('hidden');
+    });
+    
+    document.getElementById('contact-btn').addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+    });
+    
+    document.getElementById('close-contact').addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+    });
+    
+    document.getElementById('contact-overlay').addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+    });
+    
+    document.getElementById('about-btn').addEventListener('click', () => {
+      aboutModal.classList.remove('hidden');
+    });
+    
+    document.getElementById('close-about').addEventListener('click', () => {
+      aboutModal.classList.add('hidden');
+    });
+    
+    document.getElementById('about-overlay').addEventListener('click', () => {
+      aboutModal.classList.add('hidden');
+    });
+    
+    document.getElementById('whatsapp-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      
+      // Format the WhatsApp message
+      const whatsappMessage = encodeURIComponent(
+        `Bonjour, je m'appelle ${name}. ${message}`
+      );
+      
+      // Open WhatsApp with the pre-filled message
+      window.open(`https://wa.me/${phone}?text=${whatsappMessage}`, "_blank");
+      
+      // Reset form and close modal
+      document.getElementById('name').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('message').value = '';
+      contactModal.classList.add('hidden');
+    });
+    
+    // WhatsApp order button
+    document.getElementById('whatsapp-order-btn').addEventListener('click', () => {
+      const orderDetails = cart.map(item => {
+        const product = products.find(p => p.id === item.id);
+        return `${product.name} x${item.quantity}`;
+      }).join('\n');
+      
+      const total = cart.reduce((sum, item) => {
+        const product = products.find(p => p.id === item.id);
+        return sum + (product?.price || 0) * item.quantity;
+      }, 0);
+      
+      const whatsappMessage = encodeURIComponent(
+        `Bonjour, je voudrais commander les articles suivants:\n\n${orderDetails}\n\nTotal: $${total.toFixed(2)}`
+      );
+      
+      // Replace this with your actual WhatsApp business number
+      const whatsappBusinessNumber = '+212645756808';
+      
+      window.open(`https://wa.me/${whatsappBusinessNumber}?text=${whatsappMessage}`, "_blank");
+    });
+    
+    // Theme toggle
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('darkMode', isDark);
+      
+      if (isDark) {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      }
+    });
+
+    // Initialize the page
+    renderProducts();
+    updateCart();
+  </script>
 </body>
 </html>
